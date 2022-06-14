@@ -40,7 +40,7 @@ pub fn get_cached_files_info(path:PathBuf, filter:NgxFilter) -> Vec<NgxCacheData
     match filter.order_by.as_str() {
       "filename" => { data.sort_by(|a, b| if ascending { a.file.cmp(&b.file) } else { b.file.cmp(&a.file) } )},
       "cached" => { data.sort_by(|a, b| if ascending { a.cached_date.cmp(&b.cached_date) } else { b.cached_date.cmp(&a.cached_date) } )},
-      "expired" => { data.sort_by(|a, b| if ascending { a.expire_date.cmp(&b.expire_date) } else { b.expire_date.cmp(&a.expire_date) } )},
+      "expire" => { data.sort_by(|a, b| if ascending { a.expire_date.cmp(&b.expire_date) } else { b.expire_date.cmp(&a.expire_date) } )},
       "modified" => { data.sort_by(|a, b| if ascending { a.last_modified_date.cmp(&b.last_modified_date) } else { b.last_modified_date.cmp(&a.last_modified_date) } )},
       "key" => { data.sort_by(|a, b| if ascending { a.key.cmp(&b.key) } else { b.key.cmp(&a.key) } )},
       _ => {}
